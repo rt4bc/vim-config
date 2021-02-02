@@ -1,0 +1,16 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "markdown",
+        "javascript",
+        "graphql",
+        "yaml",
+        "json",
+        "python",
+        "c"
+],
+//formating
+"python.formatting.provider": "black",
+//linting
+"python.linting.enabled": true,
+"python.linting.flake8Enabled": true
+}
