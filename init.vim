@@ -1,4 +1,3 @@
-let g:coc_global_config="$HOMEPATH\.vim\setting.json"
 
 call plug#begin()
 
