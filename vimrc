@@ -1,4 +1,6 @@
 
+set rtp+=$USERPROFILE\vimfiles
+
 call plug#begin()
 
 Plug 'Yggdroot/indentLine'
@@ -14,10 +16,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-
 call plug#end()
 
-source $HOMEPATH\.vim\general.vim
+source $USERPROFILE\vimfiles\general.vim
 
-source $HOMEPATH\.vim\lsp.vim
-
+source $USERPROFILE\vimfiles\program.vim
