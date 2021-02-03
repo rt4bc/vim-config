@@ -26,14 +26,16 @@ set shortmess+=c
 set signcolumn=yes
 set clipboard+=unnamed 
 
-language en
+be xterm
 set langmenu=en_US.UTF-8
+language en
 language messages en_US.UTF-8
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
+
 
 " Switch to your current theme
 syntax on "语法检测
