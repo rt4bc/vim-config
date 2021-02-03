@@ -26,15 +26,14 @@ set shortmess+=c
 set signcolumn=yes
 set clipboard+=unnamed 
 
+language en
+set langmenu=en_US.UTF-8
+language messages en_US.UTF-8
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
-set langmenu=en_US.UTF-8
-language en
-
-set guifont=Fira\ Code\ Retina:h16:cANSI
 
 " Switch to your current theme
 syntax on "语法检测
@@ -61,6 +60,8 @@ let g:airline#extensions#tabline#formatter = 'default'
 " enable powerline fonts
 " air-line
 let g:airline_powerline_fonts = 1
+" set guifont=Fira\ Code\ Retina:h16:cANSI
+set gfn=Fira\ Code\ Retina:h16:cANSI
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
