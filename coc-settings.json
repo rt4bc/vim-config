@@ -1,0 +1,27 @@
+{
+  "codeLens.enable": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.rootPatterns": [".git", "compile_commands.json"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "css",
+    "markdown",
+    "python",
+    "cpp",
+    "c"
+  ],
+
+  "coc.source.file.ignoreHidden": false,
+
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--fast"],
+  "python.linting.enabled": true,
+  "signature.target": "echo",
+  "suggest.timeout": 3000,
+  "suggest.asciiCharactersOnly": true
+}
