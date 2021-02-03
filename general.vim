@@ -1,7 +1,5 @@
 filetype plugin on
-" 设置为双字宽显示，否则无法完整显示如:☆
-" set ambiwidth=double
-set t_ut= " 防止vim背景颜色错误
+
 set showmatch " 高亮匹配括号
 set matchtime=1
 set report=0
@@ -15,7 +13,6 @@ set autoread
 set nocompatible
 set nu "设置显示行号
 set backspace=2 "能使用backspace回删
-syntax on "语法检测
 set ruler "显示最后一行的状态
 set laststatus=2 "两行状态行+一行命令行
 set ts=4
@@ -33,7 +30,25 @@ set fileencoding=utf-8
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set langmenu=en_US.UTF-8
+language en
 
+set guifont=Fira\ Code\ Retina:h16:cANSI
+
+" Switch to your current theme
+syntax on "语法检测
+set t_Co=256
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
+colorscheme codedark
+
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -44,12 +59,19 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline#extensions#tabline#formatter = 'default'
 
 " enable powerline fonts
+" air-line
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 
-" Switch to your current theme
-let g:airline_theme = 'onedark'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = "CL" " current line
+let g:airline_symbols.whitespace = '|'
+let g:airline_symbols.maxlinenr = 'ML' "maxline
+let g:airline_symbols.branch = 'BR'
+let g:airline_symbols.readonly = "RO"
+let g:airline_symbols.dirty = "DT"
+let g:airline_symbols.crypt = "CR" 
 
 let g:airline#extensions#keymap#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -85,28 +107,12 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 " 设置切换tab的快捷键 <\> + <q> 退出当前的 tab
 nmap <leader>q :bp<cr>:bd #<cr>
 
-" 修改了一些个人不喜欢的字符
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = "CL" " current line
-let g:airline_symbols.whitespace = '|'
-let g:airline_symbols.maxlinenr = 'Ml' "maxline
-let g:airline_symbols.branch = 'BR'
-let g:airline_symbols.readonly = "RO"
-let g:airline_symbols.dirty = "DT"
-let g:airline_symbols.crypt = "CR" 
-
-
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
 let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
 
-
-autocmd vimenter * NERDTree  "自动开启Nerdtree
+" autocmd vimenter * NERDTree  "自动开启Nerdtree
 let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
 let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-autocmd vimenter * if !argc()|NERDTree|endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 设置树的显示图标
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
@@ -117,5 +123,6 @@ let g:NERDTreeHidden=0     "不显示隐藏文件
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 " reference https://gist.github.com/subfuzion/7d00a6c919eeffaf6d3dbf9a4eb11d64
