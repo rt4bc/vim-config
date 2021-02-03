@@ -19,7 +19,11 @@ set ts=4
 set expandtab
 set autoindent "设置c语言自动对齐
 
-"共享剪切板
+set hidden
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 set clipboard+=unnamed 
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
@@ -27,9 +31,6 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 set langmenu=en_US.UTF-8
 language en
 
@@ -43,7 +44,6 @@ if &term =~ '256color'
   set t_ut=
 endif
 colorscheme codedark
-
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -124,5 +124,32 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
+
+
+"add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+au FileType python let g:NERDSpaceDelims = 0
+ 
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+ 
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+ 
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+ 
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+ 
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+ 
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+ 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
 
 " reference https://gist.github.com/subfuzion/7d00a6c919eeffaf6d3dbf9a4eb11d64
