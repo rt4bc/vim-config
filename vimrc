@@ -7,6 +7,7 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasiser/vim-code-dark'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
