@@ -1,3 +1,16 @@
+let g:coc_global_extensions = [
+                \'coc-pyright',
+                \'coc-json',
+                \'coc-pairs',
+                \'coc-prettier',
+                \'coc-clangd',
+                \'coc-cmake',
+                \'coc-git'
+\ ]
+
+" Location of the coc-settings.json file
+let g:coc_config_home = '$USERPROFILE\vimfiles'
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -81,3 +94,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
  
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
